@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: "\n",
 			},
-			app: {
+			main: {
 				src: [
 					'bower_components/js-xlsx/dist/shim.min.js',
 					'bower_components/js-xlsx/dist/xlsx.full.min.js',
@@ -45,9 +45,17 @@ module.exports = function(grunt) {
 				src: [
 					'bower_components/jquery/dist/jquery.js',
 					'bower_components/fancybox/dist/jquery.fancybox.js',
-					'src/js/test.js'
+					'src/js/xlsx.test.js'
 				],
 				dest: 'test/js/test.js'
+			},
+			app: {
+				src: [
+					'bower_components/jquery/dist/jquery.js',
+					'bower_components/fancybox/dist/jquery.fancybox.js',
+					'src/js/app.js'
+				],
+				dest: 'test/js/app.js'
 			}
 		},
 		uglify: {
@@ -81,6 +89,18 @@ module.exports = function(grunt) {
 						filter: 'isFile',
 						rename: function (dst, src) {
 							return dst + '/' + 'xlsx.test.js';
+						}
+					},
+					{
+						expand: true,
+						flatten : true,
+						src: [
+							'test/js/app.js'
+						],
+						dest: 'dist/',
+						filter: 'isFile',
+						rename: function (dst, src) {
+							return dst + '/' + 'appjs.min.js';
 						}
 					}
 				]
@@ -179,7 +199,7 @@ module.exports = function(grunt) {
 			app: {
 				files: {
 					'<%= globalConfig.assets %>/main.min.css' : ['test/css/replace/main.css'],
-					'dist/xlsx.test.css' : ['test/css/replace/test.css']
+					'dist/app.css' : ['test/css/replace/test.css']
 				}
 			}
 		},

@@ -15,7 +15,7 @@
 		SHARE: "Поделиться",
 		ZOOM: "Увеличить"
 	};
-	$(document).on('click', 'a[href$=".xlsx"]', function(e){
+	$(document).on('click', 'a[href$=".xlsx"], a[href$=".docx"], a[href$=".pdf"]', function(e){
 		e.preventDefault();
 		let base = window.location.origin + '/',
 			reg = new RegExp("^" + base),
@@ -46,6 +46,32 @@
 					$.fancybox.open(options);
 					return !1;
 					break;
+				case "docx":
+					go = window.location.origin + '/viewer/docx_viewer/?file=' + test;
+					options = {
+						src: go,
+						type: 'iframe',
+						opts : {
+							afterShow : function( instance, current ) {
+								$(".fancybox-content").addClass('docx_viewer');
+							},
+							afterLoad : function( instance, current ) {
+								$(".fancybox-content").addClass('docx_viewer');
+							},
+						}
+					};
+					e.preventDefault();
+					$.fancybox.open(options);
+					return !1;
+					break;
+				case "pdf":
+					go = window.location.origin + '/viewer/web/?file=' + test;
+					options = {
+						src: go
+					};
+					e.preventDefault();
+					$.fancybox.open(options);
+					return !1;
 			}
 		}
 		return !1;

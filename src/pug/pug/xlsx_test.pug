@@ -1,0 +1,19 @@
+doctype html
+html(lang="ru")
+	head
+		meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=EmulateIE9")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title
+			|Предпросмотр Microsoft Office Excel (xls, xlsx) файлов
+		link(rel="shortcut icon" href="/favicon.ico")
+		link(type="text/css" rel="stylesheet" href="xlsx.test.css?" + hash)
+	body
+		ul
+			li
+				a(href="files/2023-05-31-sm.xlsx" target="_blank")
+					|File
+			li
+				a(href="files/xlsx-not-found.xlsx" target="_blank")
+					|No file
+		script(type="text/javascript" src="xlsx.test.js?" + hash)
