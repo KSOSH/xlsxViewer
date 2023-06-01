@@ -33,6 +33,10 @@ module.exports = function(grunt) {
 			},
 			app: {
 				src: [
+					'bower_components/js-xlsx/dist/shim.min.js',
+					'bower_components/js-xlsx/dist/xlsx.full.min.js',
+					'bower_components/x-spreadsheet/dist/xspreadsheet.js',
+					'src/js/locale/ru.js',
 					'src/js/main.js'
 				],
 				dest: 'test/js/main.js'
@@ -212,7 +216,7 @@ module.exports = function(grunt) {
 						cwd: __dirname + '/src/pug/',
 						src: [ '*.pug' ],
 						dest: __dirname + '/dist/viewer/xlsx_viewer/',
-						ext: '.pug'
+						ext: '.php'
 					},
 					{
 						expand: true,

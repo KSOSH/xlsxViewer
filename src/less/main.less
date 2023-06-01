@@ -1,0 +1,95 @@
+@import "xspreadsheet";
+* {
+	&,
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	display: flex;
+    flex-direction: column;
+    background-color: rgba(42, 42, 46, 1);
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	> .header,
+	> .footer {
+		flex: 0 0 auto;
+	}
+	> .main {
+		flex: 1 0 auto;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		position: relative;
+		overflow: auto;
+		> .wrapper {
+			//padding: 15px;
+			margin: auto;
+			max-width: 1020px;
+			width: 100%;
+			//background-color: white;
+			overflow: auto;
+			height: 100%;
+		}
+	}
+}
+img {
+	max-width: 100%;
+}
+.header {
+	> .wrapper {
+		display:flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		background-color: black !important;
+		color: white !important;
+		overflow: hidden !important;
+		padding-left: 15px;
+		padding-right: 15px;
+		> p {
+			margin: 0;
+			padding: 5px 10px;
+			line-height: 1;
+			white-space: nowrap;
+			white-space: nowrap !important;
+			text-overflow: ellipsis !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			&#title{
+				flex: 1;
+			}
+		}
+	}
+}
+#download {
+	color: white !important;
+	display: flex;
+	&::before {
+		content: "";
+		background-image: data-uri("../images/download.svg");
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 17px;
+		height: 17px;
+		display: block;
+		filter: invert(1);
+		margin-right: 10px;
+	}
+	&:not([href]){
+        display: none;
+    }
+}
