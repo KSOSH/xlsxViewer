@@ -41,14 +41,6 @@ module.exports = function(grunt) {
 				],
 				dest: 'test/js/main.js'
 			},
-			test: {
-				src: [
-					'bower_components/jquery/dist/jquery.js',
-					'bower_components/fancybox/dist/jquery.fancybox.js',
-					'src/js/xlsx.test.js'
-				],
-				dest: 'test/js/test.js'
-			},
 			app: {
 				src: [
 					'bower_components/jquery/dist/jquery.js',
@@ -83,21 +75,9 @@ module.exports = function(grunt) {
 						expand: true,
 						flatten : true,
 						src: [
-							'test/js/test.js'
-						],
-						dest: 'dist/',
-						filter: 'isFile',
-						rename: function (dst, src) {
-							return dst + '/' + 'xlsx.test.js';
-						}
-					},
-					{
-						expand: true,
-						flatten : true,
-						src: [
 							'test/js/app.js'
 						],
-						dest: 'dist/',
+						dest: 'dist/viewer',
 						filter: 'isFile',
 						rename: function (dst, src) {
 							return dst + '/' + 'appjs.min.js';
@@ -199,7 +179,7 @@ module.exports = function(grunt) {
 			app: {
 				files: {
 					'<%= globalConfig.assets %>/main.min.css' : ['test/css/replace/main.css'],
-					'dist/app.css' : ['test/css/replace/test.css']
+					'dist/viewer/app.css' : ['test/css/replace/test.css']
 				}
 			}
 		},
